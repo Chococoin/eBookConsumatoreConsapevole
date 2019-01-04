@@ -1,257 +1,77 @@
-/* ePub base r2.0 ePubLibre - epl.css*/
+/* ePub base r2.0 ePubLibre - style.css*/
 
-/*********** NO MODIFIQUE ESTA HOJA DE ESTILOS *********/
+/*ESTILO DE PÁRRAFO POR DEFECTO
+Edite y habilite o deshabilite un estilo por defecto para el libro, o cree su propio estilo de párrafo personalizado que se adapte al mismo. Recuerde que afectará a todo el contenido, exceptuando las páginas que no enlacen este css (como las fijas). Tambien puede crear uno propio que se ajuste a sus necesidades. OJO: NO SE DEBE ASIGNAR UN TAMAÑO DE FUENTE POR DEFECTO PARA <p>, deje que el lector escoja el que le sea más comodo para la lectura. */
 
-/* RESET DE ELEMENTOS HTML */ 
-address, blockquote, dd, div, dl, dt, h1, h2, h3, h4, h5, h6, hr, li, ol, p, pre, ul {
-    font-size: 1em;
-    font-style: inherit;
-    font-weight: inherit;
-    line-height: inherit;
+/* El estilo por defecto es el de párrafo normal, apto para novelas, relatos, ensayos, etc.*/
+/*
+p {
     margin: 0;
-    padding: 0;
-    text-indent: 0;
+    text-align: justify;
+    text-indent: 1.5em;
+}
+*/
+/* Estilo de párrafo aleman o moderno. Apto para obras como manuales, obras de referencia, obras científicas o técnicas, etc.*/
+
+p { 
+    margin: 1em 0; 
+    text-align:justify; 
+    text-indent:0;
 }
 
-a, abbr, b, bdi, bdo, cite, code, data, del, dfn, em, i, ins, kbd, mark, q, rp, rt, rtc, ruby, s, samp, small, span, strong, sub, sup, time, var {
-    color: inherit;
-    font-size: inherit;
-    font-style: inherit;
-    font-weight: inherit;
-    text-decoration: none;
-    vertical-align: baseline;
+
+/* ESTILOS GENERALES. PUEDE ADAPTARLOS O ELIMINARLOS SI NO LOS USA*/
+
+/* encabezados */
+
+h1 { 
+    font-size: 1.8em; 
+    margin: 20% 0 2em; 
 }
 
-/*  DEFINICION DE ELEMENTOS GLOBALES (NO MODIFICABLES)  */
-body {
-    border: 0;
-    font-size: 1em;
-    line-height: 1.25;
-    orphans: 2;
-    padding: 0;
-    widows: 2;
-    font-style: normal;
-    font-weight: normal;
+h2, h3 {
+    margin: 2em 0 1em;
 }
 
-/* iBooks y Kobo soportan huerfanas y viudas */
-body * {
-    line-height: inherit;
+h2 { font-size: 1.4em; }
+h3 { font-size: 1.3em; }
+
+/* dedicatoria */
+.dedicatoria {
+    margin: 25% 3% 0 15%;
+    text-align: right;
 }
 
-a, .normal {
-    font-style: normal;
-    font-weight: normal;
-    text-decoration: none;
-}
-
-a {
-    color: inherit;
-    font-weight: bold;
-    -webkit-text-fill-color: inherit;
-}
-
-sub {
-    font-size: 0.75em;
-    line-height: 1.2;
-    vertical-align: sub;
-    vertical-align: -20%;
-}
-
-sup {
-    font-size: 0.75em;
-    line-height: 1.2;
-    vertical-align: super;
-    vertical-align: 35%;
-}
-
-img {
-    max-width: 100%;
-    max-height: 100%;
-}
-
-/******************* Tipografía **********************/
-.sans, .sans p, .sans em, .sans strong, .sans big, .sans small {
-    font-family: sans-serif;
-}
-
-.serif, .serif p, .serif em, .serif strong, .serif big, .serif small {
-    font-family: serif;
-}
-
-code, kbd, samp, var, .mono, .mono p, .mono em, .mono strong, .mono big, .mono small {
-    font-family: monospace;
-}
-
-i, em, cite, dfn, .cursiva, .cursiva p {
-    font-style: italic;
-}
-
-i i, i cite, i dfn, i em, cite i, cite cite, cite dfn, cite em, dfn i, dfn cite, dfn dfn, dfn em, em i, em cite, em dfn, em em, .cursiva i, .cursiva cite, .cursiva dfn, .cursiva em {
-    font-style: normal;
-}
-
-b, strong, .negrita, negrita p {
-    font-weight: bold;
-}
-
-blockquote {
-    display: block;
-    margin-top: 1em;
-    margin-right: 9%;
-    margin-bottom: 1em;
-    margin-left: 9%;
-    quotes: none;
-}
-
-ins, .subrayado {
-    text-decoration: underline;
-}
-
-del, s, .tachado {
-    text-decoration: line-through;
-}
-
-big, .grande {
-    font-size: 1.2em;
-}
-
- /* para texto en mayúsculas, de tamaño similar al de las minúsculas */
-small, .versalita {
-    font-size: 0.8em;
-}
-
-mark {
-    background-color: yellow;
-    color: inherit;
-}
-
-.oculto {
-    display: none;
-    visibility: hidden;
-}
-
-/******************* Alineación *******************/
-.izquierda, .izquierda p {
-    text-align: left;
-}
-
-.derecha, .derecha p {
+.dedicatoria p {
     text-align: right;
     text-indent: 0;
 }
 
-.centrado, .centrado p {
-    text-align: center;
-    text-indent: 0;
-}
+/* saltos */
 
-.justificado, .justificado p {
-    text-align: justify;
-}
+.salto05 { padding-top: 0.5em; }
+.salto10 { padding-top: 1em; }
+.salto25 { padding-top: 2.5em; }
 
-.asangre, .asangre p {
-    text-indent: 0;
-}
-
-/******************** Bloques ********************/
-.sinmargen {
-    margin: 0;
-}
-
- /* evita dividir un elemento entre páginas */
-.bloque {
-    page-break-inside: avoid;
-    break-inside: avoid;
-}
-
- /* evita dividir una palabra entre líneas */
-abbr, .nosep {
-    text-indent: 0;
-    display: inline-block;
-}
-
- /* evita división aleatoria de párrafos muy extensos (bug ADE) */
-.extenso {
-    orphans: 0;
-    widows: 0;
-}
-
-/****************** Listas *******************/
-ul, ol {
-    display: block;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 9%;
-}
-
-ul ul {
-    margin-top: .25em;
-    margin-bottom: .25em;
-}
-
-ol ol {
-    margin-top: .25em;
-    margin-bottom: .25em;
-}
-
-li {
-    margin: 0;
-    text-align: justify;
-    text-indent: 0;
-}
-
-dl {
-    display: block;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 0;
-    margin-right: 0;
-}
-
-dt {
-    display: block;
-    margin: 1em 0 0 0;
-}
-
-dd {
-    display: block;
-    margin-left: 9%;
-    text-align: justify;
-}
-
-dt, pre {
-    text-align: left;
-}
 
 hr {
-    width: 0;
-    margin: 0;
     height: 2.5em;
-    border: none;
-    background: none;
-}
+} 
+/* El valor por defecto de <hr/> ahora es un espacio en blanco  para marcar saltos de contexto. Cambie la altura del mismo a su conveniencia  modificando el atributo height */ 
 
-/* Valores minimos para los encabezados (el reset los deja sin ninguno por defecto */
-h1, h2, h3, h4, h5, h6 {
-    font-size: 1.2em;
-    font-weight: bold;
+
+/* imágenes simples */  
+
+.ilustra {
     margin: 1em 0;
     text-align: center;
+    text-indent: 0;
+    display: block;
 }
 
-/***** Evitar división de contenido entre páginas *********/
-h1, h2, h3, h4, h5, h6, dt, hr {
-    page-break-inside: avoid;
-    break-inside: avoid;
-    page-break-after: avoid;
-    break-after: avoid;
-}
+/* Control de silabeo. Asegurese de agregar cualquier estilo que no quiera que el e-reader divida con guiones, como los subtítulos, versos, etc. */
 
-/************ CONTROL DE SILABEO ********************/
-h1, h2, h3, h4, h5, h6, abbr, dt, pre, address, table, caption, th, td, .tlogo, .tautor, .ttitulo, .tsubtitulo, .tserie, .trevision, .tfirma, .info, .izquierda, .derecha, .centrado {
+.dedicatoria {
     adobe-hyphenate: none;
     -ms-hyphens: none;
     -moz-hyphens: none;
@@ -260,131 +80,128 @@ h1, h2, h3, h4, h5, h6, abbr, dt, pre, address, table, caption, th, td, .tlogo, 
     hyphens: none;
 }
 
-/*  ESTILOS DE SECCIONES FIJAS DE EPL (NO MODIFICABLES)  */
-.cubierta {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 0;
-    text-align: center;
-    text-indent: 0;
-    page-break-before: always;
-    page-break-after: always;
-}
+.salto10 { padding-top:1em; }
 
-.cubierta img {
-    width: auto;
-    max-width: 100%;
-    height: auto;
-    max-height: 100%;
-}
 
-.tautor, .ttitulo, .tsubtitulo, .tserie, .trevision, .tfirma {
-    margin: 0 20px;
-    text-align: center;
-    text-indent: 0;
-    font-family: sans-serif;
-    font-weight: bold;
-}
+/* ----- ESTILOS PERSONALES ----- */
 
-div.tlogo {
-    display: block;
-    margin: 15% 37.5% 8%;
-    width: 25%;
-    height: auto;
-}
+/* ----------------- \o/ \o/ \o/ \o/ \o/ \o/ \o/ ----------------- */
+/*                                                                 */
+/*                                                                 */
+/*           Los estilos que aparecen a continuación se            */
+/*      han definido para dar formato a este manual. En muchos     */
+/*       casos se corresponden con las explicaciones dadas         */
+/*     en los distintos apartados que lo componen, pero en otros   */
+/*       se han tenido que modificar para ser adaptados a las      */
+/*          características del entorno donde se aplican.          */
+/*                                                                 */
+/*         Por ello, se recomienda la lectura del apartado         */
+/*       correspondiente antes de copiar cualquiera de estos       */
+/*        estilos para ser usado fuera del propio manual.          */
+/*                                                                 */
+/*                                                                 */
+/* ----------------- \o/ \o/ \o/ \o/ \o/ \o/ \o/ ----------------- */
 
-.tautor {
-    margin-bottom: 0.5em;
-    font-size: 1.2em;
-    font-weight: normal;
-    color: #595959;
-}
 
-.ttitulo {
-    padding: 0;
-    border: 0;
-    font-size: 1.8em;
-    font-style: normal;
-    text-decoration: none;
-    color: black;
-    visibility: visible;
-}
+/* ----- Encabezados especiales ----- */
 
-.tsubtitulo, .tserie {
-    margin: .3em 5% 0;
-}
+.seccion { text-align:left; margin-top: 2em;  margin-bottom: 1em; text-indent:0; font-size:1.2em; border-bottom:2px solid black; font-weight:normal; }
 
-.trevision {
-    margin-top: 2.5em;
-    font-size: 0.8em;
-    color: #595959;
-}
+.subseccion { text-align:left; margin-top: 1em;  margin-bottom: 0.5em; text-indent:0; font-size:1.1em; border-bottom:1px solid grey; font-weight:normal; }
 
-.tfirma {
-    margin-top: 0.25em;
-    font-size: 0.65em;
-}
+/* .epigrafe { font-size:1.1em; font-weight:bold; padding-top:1em; margin-bottom:0.5em; text-indent:0; }*/
 
-.tfecha {
-    font-family: sans-serif;
-    font-weight: normal;
-    color: #595959;
-}
+/* ----- Avisos y advertencias ----- */
 
-.sinopsis {
-    margin-top: 10%;
-}
+.aviso { margin:1.5em 12%; padding:1em; text-align:center; border:2px ridge red; color:red; font-weight:bold; border-width:5px; text-indent:0; }
+    .aviso img { vertical-align:middle; margin-right:2%; width:22% }
+    .aviso p {color:red; }
 
-.sinopsis p, .autor, .autor p, .nota p {
-    margin: 0.5em 0;
-    text-indent: 0;
-    text-align: justify;
-    font-size: 1em;
-    color: inherit;
-}
+.regla { margin:1em 12%; padding:0.5em; text-indent:0; text-align:center; border:1px solid grey; color:black; font-weight:normal; border-width:3px; }
+   .regla p { text-align:center; }
 
-.info {
-    margin: 10% 5% 0;
-    font-size: 0.8em;
-    width: 90%;
-}
+/* ----- Códigos y ejemplos ----- */
 
-.info p {
-    text-align: left;
-    text-indent: 0;
-    margin: 0;
-}
+.ejcodigo{ overflow:auto; text-align:left; margin:1.5em; padding:0.5em; border-top: 2px solid blue; border-left: 2px solid blue; font-family:"CourierBT", CourierBT; font-size:0.8em; text-indent:0; }
 
-.vineta {
-    padding: 1em 0;
-    text-align: center;
-    text-indent: 0;
-    display: block;
-}
+.ejcodigo p { text-align:left; text-indent:0; margin-bottom:-1em; margin:0; }
 
-.nota {
-    padding-top: 10%;
-    page-break-before: always;
-}
+.ejpantalla{ overflow:auto; margin:1.5em; padding:0.5em; border-top: 3px double grey; border-left: 3px double grey; }
 
-#iautor {
-    height: 40%;
-    width: auto;
-}
+.ejemplo { color: green; font-size:0.85em; }
 
-.icono_fuente {
-    width: 7%;
-    height: auto;
-}
+/* ----- Márgenes ----- */
 
-.bloque_exlibris {
-    display: block;
-    margin: 5% 37.5% 0;
-    width: 25%;
-    height: auto;
-}
+.cita { padding:1.5em; }
 
-.ancho_full {
-    width: 100%;
-}
+.margizq07 { margin-left:.75em; }
+
+.margizq15 { margin-left:1.5em; }
+
+.margizq23 { margin-left:2.3em; } /*para indentado de código*/
+
+.margizq30 { margin-left: 3em; }
+
+/* ----- ESCALAR IMG ----- */
+
+.imagenesc { display:inline-block; margin:1em 0; text-indent:0; }
+   .imagenesc img { width:100%; }
+
+.escalar { display:inline-block; width:.55em; max-width:100%; text-indent:0; vertical-align:-.1em; }
+    .escalar img { width:100%; }
+
+.escalarsvg { width: 10em; max-width:100%; }
+
+/* ----- PIE DE FOTO INFERIOR ----- */
+
+.imagen50 { text-align:center; text-indent:0; display:block; }
+   .imagen50 img { width:50%; }
+
+
+/* ----- Listas ----- */
+.nolist { list-style:none; display:block; }
+
+.faq { text-indent:0; }
+
+ol.faq li { margin-left:3em; }
+
+ol.faq li.nolist { margin-left:-2em; }
+
+.olletra {list-style-type: lower-latin; }
+
+/* ----- Listas anidadas ----- */ /*--Modificado espaciado para evitar uso de salto05 en el 1º nivel ul y ol + li--*/
+
+ul { list-style-type:disc; margin-top:0.5em; }
+
+ul ul { list-style-type:square; }
+
+ul ul ul { list-style-type:circle; }
+
+ol { margin-top:0.5em; }
+
+li { margin-bottom:1em; }
+
+
+/* ----- Fuentes ----- */
+
+@font-face { font-family:"CourierBT"; font-style:normal; font-weight:normal; src:url(../Fonts/CourierBT.ttf) }
+
+/* ----- Colores ----- */
+
+.hr { color: #800000; } /* marrón */
+.hb { color: #0000ff; } /* azul  */
+.hp { color: #6F3198; } /* púrpura */
+.hd { color: #ff0000; } /* rojo  */
+.hg { color: #008000; } /* verde */
+.ho { color: #808000; } /* verde oliva  */
+
+/* --- Tablas --- */
+table { border-collapse: collapse; }
+
+table.padd td { padding:0.1em 0.4em; }
+
+.tabcentro { display: inline-table; }
+
+/* SVG en línea */
+.centsvglin { margin:1em 0; text-align:center; text-indent:0; display:block; }
+.escsvglin { max-width:100%; max-height:11.5em; width:18em; border:1px solid; }
